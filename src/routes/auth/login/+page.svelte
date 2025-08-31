@@ -10,4 +10,7 @@
 	<CardContent>
 		<Button href="/auth/login/github">Sign in with Github</Button>
 	</CardContent>
+	<CardContent>
+		<Button href="/auth/login/google">Sign in with Google</Button>
+	</CardContent>
 </Card>
