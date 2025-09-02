@@ -33,5 +33,5 @@ export const getOrCreateUserProfile = async (locals: App.Locals) => {
 		throw error(500, 'Failed to create user profile');
 	}
 
-	return !newProfile;
+	return newProfile;
 };
