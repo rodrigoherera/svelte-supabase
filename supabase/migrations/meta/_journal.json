@@ -8,6 +8,20 @@
       "when": 1756494071829,
       "tag": "0000_pale_mister_fear",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1757268130903,
+      "tag": "0001_lumpy_frightful_four",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1757278447817,
+      "tag": "0002_thick_george_stacy",
+      "breakpoints": true
     }
   ]
 }

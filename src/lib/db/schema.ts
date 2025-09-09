@@ -6,3 +6,10 @@ export const profileTable = pgTable('profile', {
 	lastName: text('last_name').notNull(),
 	email: text('email').notNull()
 });
+
+export const postTable = pgTable('post', {
+	id: uuid('id').defaultRandom().primaryKey(),
+	title: text('title').notNull(),
+	description: text('description').notNull(),
+	tags: text('tags')
+});

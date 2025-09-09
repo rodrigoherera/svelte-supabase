@@ -1,22 +1,15 @@
 import { db } from '$lib/db';
 import { profileTable } from '$lib/db/schema';
-import { error } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
 
-export const getOrCreateUserProfile = async (locals: App.Locals) => {
+export async function getAuthUser(locals: App.Locals) {
 	const { user } = await locals.safeGetSession();
+	return user ?? null;
+}
 
-	if (!user) {
-		return null;
-	}
-
-	const curProfile = await db.query.profileTable.findFirst({
-		where: eq(profileTable.id, user.id)
-	});
-
-	if (curProfile) {
-		return curProfile;
-	}
+export async function createProfile(locals: App.Locals) {
+	const user = await getAuthUser(locals);
+	if (!user) return null;
 
 	await db.insert(profileTable).values({
 		id: user.id,
@@ -25,13 +18,9 @@ export const getOrCreateUserProfile = async (locals: App.Locals) => {
 		email: user.email ?? ''
 	});
 
-	const newProfile = await db.query.profileTable.findFirst({
+	const profile = await db.query.profileTable.findFirst({
 		where: eq(profileTable.id, user.id)
 	});
 
-	if (!newProfile) {
-		throw error(500, 'Failed to create user profile');
-	}
-
-	return newProfile;
-};
+	return profile;
+}

@@ -5,12 +5,12 @@
 	import Card from '$lib/components/ui/card/card.svelte';
 </script>
 
-<Card>
-	<CardHeader>Login to the site!</CardHeader>
-	<CardContent>
-		<Button href="/auth/login/github">Sign in with Github</Button>
-	</CardContent>
-	<CardContent>
-		<Button href="/auth/login/google">Sign in with Google</Button>
-	</CardContent>
-</Card>
+<div class="min-h-[60vh] grid place-items-center">
+	<Card class="w-full max-w-sm">
+		<CardHeader>Login to the site!</CardHeader>
+		<CardContent class="space-y-3">
+			<Button href="/auth/login/github" class="w-full">Sign in with Github</Button>
+			<Button href="/auth/login/google" variant="secondary" class="w-full">Sign in with Google</Button>
+		</CardContent>
+	</Card>
+</div>
